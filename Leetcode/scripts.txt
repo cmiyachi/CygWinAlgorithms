@@ -1,0 +1,52 @@
+eksctl create cluster --name simple-jwt-api
+
+902786544301
+
+  - rolearn: arn:aws:iam::902786544301:role/UdacityFlaskDeployCBKubectlRole
+    username: build
+    groups:
+      - system:masters
+	  
+	  
+	  Github Token
+	  
+	  238a7d7f7f721e59b4d021c197f4e8b17c132233
+	  
+	  
+	  arn:aws:iam::902786544301:role/eksctl-simple-jwt-api-cluster-ServiceRole-EW0CAYTIUQY7
+	  
+	  
+	  
+	  
+	  aws ssm put-parameter --name JWT_SECRET --value "cambridge2012" --type SecureString
+	  
+	  
+	  acf3f7ebf0d0a43d697da6c2473933a3-759553861.us-east-2.elb.amazonaws.com
+	  
+	  acf3f7ebf0d0a43d697da6c2473933a3-759553861.us-east-2.elb.amazonaws.com 
+	  
+	  export URL="acf3f7ebf0d0a43d697da6c2473933a3-759553861.us-east-2.elb.amazonaws.com"
+	export TOKEN=`curl -d '{"email":"test@test.com","password":"test"}' -H "Content-Type: application/json" -X POST $URL:80/auth  | jq -r '.token'`
+	curl --request GET $URL:80/contents -H "Authorization: Bearer ${TOKEN}" | jq
+	
+	
+	export TOKEN=`curl -d '{"email":"<EMAIL>","password":"<PASSWORD>"}' -H "Content-Type: application/json" -X POST <EXTERNAL-IP URL>/auth  | jq -r '.token'`
+curl --request GET '<EXTERNAL-IP URL>/contents' -H "Authorization: Bearer ${TOKEN}" | jq 
+
+
+
+export TOKEN=`curl -d '{"email":"<EMAIL>","password":"<PASSWORD>"}' -H "Content-Type: application/json" -X POST $URL:80/auth  | jq -r '.token'`
+
+
+
+23280720701409 Amazon TestID
+
+
+heroku 
+
+https://miyachisample.herokuapp.com/ | https://git.heroku.com/miyachisample.git
+
+https://miyachi-app.herokuapp.com/ | https://git.heroku.com/miyachi-app.git
+
+App not compatible with buildpack: h
+

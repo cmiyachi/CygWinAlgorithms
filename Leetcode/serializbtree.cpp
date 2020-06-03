@@ -2,65 +2,45 @@
  * Definition for a binary tree node.
  
  */
- #include <bits/stdc++.h> 
+#include <bits/stdc++.h> 
 using namespace std;
 
-  struct TreeNode {
-    int val;
+struct TreeNode {
+	int val;
 	TreeNode *left;
-    TreeNode *right;
-    TreeNode(int x) : val(x), left(NULL), right(NULL) {}
-  };
+	TreeNode *right;
+	TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+};
+  
 class Codec {
 public:
-	
     // Encodes a tree to a single string.
     string serialize(TreeNode* root) {
-		string result; 
-		if (root == NULL)
-			result += "null,"; 
-		else{
-			int x = root->val; 
-			
-			result += x.to_string() + ","; 
-			result += serialize(root->left);
-			result += serialize(root->right);
-		}
-		
-        return result; 
+        if (root == nullptr) return "#";
+        return to_string(root->val)+","+serialize(root->left)+","+serialize(root->right);
     }
 
     // Decodes your encoded data to tree.
     TreeNode* deserialize(string data) {
-		// split the string
-		std::vector<string> nodes;
-		std::stringstream ss(data);
-
-		while( ss.good() )
-		{
-			string substr;
-			getline( ss, substr, ',' );
-			nodes.push_back( substr );
-		}
-		
-		if (nodes[0] == "null") {
-			nodes.erase(nodes.begin()); 
-			return NULL;
-		}
-		
-		int x; 
-		sscanf(nodes[0], "%d", &x); 
-		string whatsleft; 
-		TreeNode *root = new TreeNode(x);
-		nodes.erase(nodes.begin());
-		for (int i = 0; i < nodes.size(); i++)
-			whatsleft += 
-		root->left = deserialize(root);
-		root->right = deserialize(root);
-		
-		return root; 
-			
-			
+        return mydeserialize(data);
+    }
+    TreeNode* mydeserialize(string& data) {
+        if (data[0]=='#') {
+            if(data.size() > 1) data = data.substr(2);
+            return nullptr;
+        } else {
+            TreeNode* node = new TreeNode(helper(data));
+            node->left = mydeserialize(data);
+            node->right = mydeserialize(data);
+            return node;
+        }
+    }
+private:
+    int helper(string& data) {
+        int pos = data.find(',');
+        int val = stoi(data.substr(0,pos));
+        data = data.substr(pos+1);
+        return val;
     }
 };
 
