@@ -7,6 +7,24 @@
 #include <bits/stdc++.h> 
 using namespace std; 
 
+class Solution3 {
+public:
+    vector<int> countSmaller(vector<int>& nums) {
+
+	int n = nums.size();
+	vector<int> countSmaller(n,0);
+
+	  for (int i = 0; i < n; i++) 
+	  { 
+		for (int j = i+1; j < n; j++) 
+		{ 
+		   if (arr[j] < arr[i]) 
+			 countSmaller[i]++; 
+		} 
+	  } 
+	  return countSmaller; 
+	} 
+};
 
 class Solution2 {
 public:
