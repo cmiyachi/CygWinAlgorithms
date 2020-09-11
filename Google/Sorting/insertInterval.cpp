@@ -1,0 +1,47 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+/*Very easy to understand code as follows.
+
+First, put all intervals that are to the left of the inserted interval.
+Second, merge all intervals that intersect with the inserted interval.
+Finally, put all intervals that are to the right of the inserted interval.
+
+That's it! You are done!
+*/
+class Solution {
+public:
+    vector<vector<int>> insert(vector<vector<int>>& intervals, vector<int>& newInterval) {
+        vector<vector<int>> res;
+		int index = 0;
+        while(index < intervals.size() && intervals[index][1] < newInterval[0]){
+            res.push_back(intervals[index++]);
+        }
+		
+		 while(index < intervals.size() && intervals[index][0] <= newInterval[1]){
+            newInterval[0] = min(newInterval[0], intervals[index][0]);
+            newInterval[1] = max(newInterval[1], intervals[index][1]);
+            index++;
+        }
+        res.push_back(newInterval);
+        while(index < intervals.size()){
+            res.push_back(intervals[index++]);
+        }
+        return res;
+    }
+};
+
+int main(void)
+{
+	vector<vector<int>> intervals{{1,2},{3,5},{6,7},{8,10},{12,16}};
+	vector<int>	newInterval{4,8};
+	Solution sol;
+	
+	vector<vector<int>> result = sol.insert(intervals, newInterval); 
+	
+	for (auto res : result)
+	{
+		cout << "[" << res[0] << "," << res[1] <<"] ";
+	}
+	return 0;
+}
