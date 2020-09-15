@@ -24,6 +24,7 @@ class Solution {
 public:
     string licenseKeyFormatting(string S, int K) {
         string result;
+		transform(S.begin(), S.end(), S.begin(), ::toupper);
         int index = S.size();
         int tempK = 0;
         while(--index >= 0){
@@ -32,7 +33,7 @@ public:
                     result += '-';
                     tempK = 0;
                 }
-                result += (isalpha(S[index]) ? char(toupper(S[index])) : S[index]);
+                result += S[index]; //(isalpha(S[index]) ? char(toupper(S[index])) : S[index]);
                 tempK++;
             }
         }
