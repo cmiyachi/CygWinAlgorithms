@@ -19,3 +19,23 @@ string removeOuterParentheses(string S, string res = "") {
 Complexity Analysis
 Runtime: O(n).
 Memory: O(n) to store the result. */
+
+class Solution {
+public:
+    string removeOuterParentheses(string S) {
+        int count = 0;
+        std::string str;
+        for (char c : S) {
+            if (c == '(') {
+                if (count++) {
+                    str += '(';
+                }
+            } else {
+                if (--count) {
+                    str += ')';
+                }
+            }
+        }
+        return str;
+    }
+};
