@@ -187,6 +187,31 @@ int main()
 	//findWords(boggle, root); 
 	
 	vector<string> final = wordBoggle(boggle, dict); 
+	
+	vector<string> dict2{"this",
+				  "is",
+				  "not",
+				  "a",
+				  "simple",
+				  "boggle",
+				  "board",
+				  "test",
+				  "REPEATED",
+				  "NOTRE-PEATED"}; 
 
+	
+
+	vector<vector<char>> boggle2{{'t', 'h', 'i', 's', 'i', 's', 'a'},
+				  {'s', 'i', 'm', 'p', 'l', 'e', 'x'},
+				  {'b', 'x', 'x', 'x', 'x', 'e', 'b'},
+				  {'x', 'o', 'g', 'g', 'l', 'x', 'o'},
+				  {'x', 'x', 'x', 'D', 'T', 'r', 'a'},
+				  {'R', 'E', 'P', 'E', 'A', 'd', 'x'},
+				  {'x', 'x', 'x', 'x', 'x', 'x', 'x'},
+				  {'N', 'O', 'T', 'R', 'E', '-', 'P'},
+				  {'x', 'x', 'D', 'E', 'T', 'A', 'E'}
+				}; 
+
+	vector<string> final2 = wordBoggle(boggle2, dict2); 
 	return 0; 
 } 
