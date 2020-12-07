@@ -46,16 +46,16 @@ int main(void)
 	
 	Solution sol;
 	
-	/* cout << sol.maxSubArray(nums) << endl;
-	
+	cout << sol.maxSubarraySumCircular(nums) << endl;
+
 	vector<int> nums2{34,-50,42,14,-5,86};
-	cout << sol.maxSubArray(nums2) << endl;
+	cout << sol.maxSubarraySumCircular(nums2) << endl;
 	
 	vector<int> nums3{-5,-1,-8,-9};
-	cout << sol.maxSubArray(nums3) << endl;
+	cout << sol.maxSubarraySumCircular(nums3) << endl;
 	
 	vector<int> nums4{8,-1,3,4};
-	cout << sol.maxSubArray(nums4) << endl; */
+	cout << sol.maxSubarraySumCircular(nums4) << endl; 
 	
 	vector<int> nums5{-3, -2, -1};
 	cout << sol.maxSubarraySumCircular(nums5) << endl;

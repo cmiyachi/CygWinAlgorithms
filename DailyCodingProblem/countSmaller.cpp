@@ -7,6 +7,7 @@
 #include <bits/stdc++.h> 
 using namespace std; 
 
+
 class Solution3 {
 public:
     vector<int> countSmaller(vector<int>& nums) {
@@ -18,13 +19,25 @@ public:
 	  { 
 		for (int j = i+1; j < n; j++) 
 		{ 
-		   if (arr[j] < arr[i]) 
+		   if (nums[j] < nums[i]) 
 			 countSmaller[i]++; 
 		} 
 	  } 
 	  return countSmaller; 
 	} 
 };
+
+/*
+
+Create an empty Set in C++ STL (Note that Set in C++ STL is implemented Self Balancing Binary Search Tree).
+
+Traverse the array element from i=len-1 to 0 and insert every element in a set.
+Find the first element that is lower than A[i] using lower_bound function.
+Find the distance between above found element and the beginning of the set using distance function.
+Store the distance in another array Lets say CountSmaller.
+Print that array .
+
+*/
 
 class Solution2 {
 public:
@@ -97,7 +110,7 @@ public:
 int main(void) 
 { 
 	vector<int> A{12, 1, 2, 3, 0, 11, 4}; 
-	Solution sol;
+	Solution2 sol;
 	vector<int> result = sol.countSmaller(A);
 	for (int i = 0; i < result.size(); i++) 
         cout << result[i] << " "; 
