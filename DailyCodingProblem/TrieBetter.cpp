@@ -64,9 +64,31 @@ public:
 		return true; 
   }
   
+  // Function to count number of words 
+	vector<string> getWords(TrieNode *node, string &str) 
+	{ 
+		vector<string> results; 
+		// Leaf denotes end of a word 
+		if (node->chidlren.find(this->endSymbol) != node->children.end()) 
+			results.push_back(str);  
+		  
+		for (int i = 0; i < ALPHABET_SIZE; i++)     
+		  if (root -> children[i]) 
+			 result += wordCount(root -> children[i]); 
+		 
+		return result;    
+	} 
+  
   vector<string> autopopulate(string prefix)
   {
+	  vector<string> result; 
 	  int prefix_len = prefix.length();
+	  if (containsPrefix(prefix)
+	  {
+		  char last_char = prefix[prefix_len-1]; 
+		  TriNode *node = this->root; 
+		  for (
+	  }
 	  
   }
 };
