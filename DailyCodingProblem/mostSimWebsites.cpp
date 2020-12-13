@@ -160,7 +160,7 @@ bool Compare(CompareStuff *a, CompareStuff* b)
 		Visit *visit18 = new Visit("bing.com",6);
 		log.push_back(visit18);
 		
-		vector<vector<string>> results = top_pairs(log, 1);
+		vector<vector<string>> results = top_pairs(log, 2);
 		
 		for (vector<string> r : results)
 		{
