@@ -66,6 +66,53 @@ int pop() {
 	
 	
 };
+class Quack2 {
+	public:
+  
+     int sz;
+     deque<int> dq;
+
+     Quack2() {
+        dq={};
+		sz = dq.size();
+    }
+
+    /*
+        when adding new element on left end, do it to both s1 and s2
+     */
+     void push(int v) {
+        dq.push_front(v);
+        sz++;
+    }
+
+    /*
+        when poping from left end, if there is no element left, throw exception;
+        otherwise, pop on s2 and s1.
+     */
+int pop() {
+        if (dq.size() == 0) return -1; 
+		int val = dq.front();
+		dq.pop_front();
+		sz--;
+		return val; 
+     
+    }
+
+    /*
+        when popping from right end, if there is no element left, throw exception;
+        otherwise, check if there are elements in s3. If there are, simply pop;
+        If there is none, reverse all elements in s2 to s3, then pop from s3.
+     */
+     int pull() {
+        if (dq.size() == 0) return -1; 
+        sz--;
+        int val = dq.back();
+		dq.pop_back();
+        return val;
+    }
+	
+	
+};
 /**
 public class BalancedQuack {
     private class EmptyQuackException extends Exception{
@@ -131,6 +178,15 @@ int main(void)
 	q.push(5);
 	cout << q.pull() << endl;
 	cout << q.pop() << endl;
+	
+	Quack2 q2;
+	q2.push(1);
+	q2.push(2);
+	q2.push(3);
+	q2.push(4);
+	q2.push(5);
+	cout << q2.pull() << endl;
+	cout << q2.pop() << endl;
 	
 	return 0;
 }
