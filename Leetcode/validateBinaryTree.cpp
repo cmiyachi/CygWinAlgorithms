@@ -24,7 +24,7 @@ public:
         return helper(root);
     }
 };
-
+// could do in order traversal and see if the array is sorted. 
 
 /**
  * Definition for a binary tree node.

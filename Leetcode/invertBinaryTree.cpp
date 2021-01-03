@@ -20,3 +20,29 @@ public:
         return root;
     }
 };
+
+class Solution2 {
+public:
+    TreeNode* invertTree(TreeNode* root) {
+        //find a leaf
+        // if node->left->left and right == NULL then you are at a leaf
+        // swap leafs
+    
+        invertTreeRecursive(root); 
+        
+        return root; 
+    }
+    
+    void invertTreeRecursive(TreeNode *node)
+    {
+        if (node == NULL) return; 
+        
+        TreeNode *temp = node->right; 
+        node->right = node->left; 
+        node->left = temp; 
+        
+        invertTreeRecursive(node->right);
+        invertTreeRecursive(node->left);
+        
+    }
+};
