@@ -35,6 +35,38 @@ public:
   }
 };
 
+class Solution2 {
+public:
+    
+     void solve(vector<vector<char>>& grid ,int start , int end){
+            if(start>=grid.size() || end>=grid[start].size() ||start<0 )
+                return ;
+            
+            if(grid[start][end]=='1'){
+                grid[start][end]='2';  //marking as visited grid 
+                solve(grid , start , end+1); //recursive call 
+                solve(grid  , start ,end-1);
+                solve(grid  ,start-1 , end);
+                solve(grid  , start+1 , end);
+            }
+            
+        }
+    
+    int numIslands(vector<vector<char>>& grid) {
+        
+        int ans =0;
+        for(int i=0;i<grid.size();i++){
+            for(int j=0;j<grid[0].size();j++){
+                if(grid[i][j]=='1'){ // only call the solve function when the grid[i][j] is not visited
+                    solve(grid  , i ,j);
+                    ans++;  // counting the number of island
+                }
+            }
+        }
+        return ans;
+    }
+};
+
 int main(void)
 {
 	vector<char> row1{'1','1','1','1','0'};

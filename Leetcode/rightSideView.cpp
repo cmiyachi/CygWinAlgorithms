@@ -52,6 +52,67 @@ public:
         return rightView;
     } // function
 };
+/*
+T = O(n) & S = O(n) due to queue
+stepwise
+1. declare a vector storing int values
+2. declare a queue storing node type value(TreeNode*)
+3. push root into queue
+4. work until queue is not empty
+5. iterate until last element present in queue and push last element of current queue size
+6. check for left and right node if null or not
+7. Repeat steps from 4 to 6
+8. return the vector.
+*/
+vector<int> rightSideView(TreeNode* root) {
+        if(!root) {
+            return {};
+        }
+        vector<int> v; //store values of nodes in the rightmost
+        queue<TreeNode*> Q; //store node type values in queue 
+        Q.push(root); //push root
+        while(!Q.empty()) { //repeat steps until queue is not empty
+            
+            int size = Q.size();  // current size of queue
+            for(int i = 0; i < size; i++) {
+              TreeNode* t = Q.front(); //declare a temp node and put front node of queue
+                Q.pop(); 
+                if(i==size-1) {   //if node is rightmost 
+                    v.push_back(t->val); //push the value of rightmost node into vector
+                }
+                if(t->left) {   //if temp->left != NULL then push into queue
+                    Q.push(t->left);
+                }
+                if(t->right) { //if temp->right != NULL then push into queue
+                    Q.push(t->right);
+                }
+            }  
+        }
+        return v; //finally we have all values
+    }
+	
+	
+	class Solutiondfs {
+public:
+    vector<int> rightSideView(TreeNode* root) {
+        vector<int> ans;
+        int maxdepth = -1;
+        helper(root, 0, maxdepth, ans);
+        return ans;
+    }
+    
+    void helper(TreeNode*root, int depth, int& maxdepth, vector<int>& ans){
+        if(!root)return;
+        if(depth>maxdepth){
+            maxdepth = depth;
+            ans.push_back(root->val);
+        }
+        
+        helper(root->right,depth+1,maxdepth,ans);
+        helper(root->left,depth+1,maxdepth,ans);
+    }
+};
+
 
 /*
 					3

@@ -66,6 +66,31 @@ int longestUniqueSubsttr(string str)
 	return max_len; 
 } 
 
+class Solution {
+public:
+    int lengthOfLongestSubstring(string s) {
+        if(s.length() <= 1) return s.length();
+        unordered_map<char, int> seen; 
+        int left = 0, longest = 0;
+        for(int right = 0; right < s.length(); right++) {
+            char currentChar = s[right];
+            int previouslySeenChar = -1; 
+            if (seen.find(currentChar) != seen.end())
+                previouslySeenChar = seen[currentChar]; 
+        
+            if(previouslySeenChar >= left) {
+              left = previouslySeenChar + 1;
+            }
+        
+            seen[currentChar] = right;
+        
+            longest = max(longest, right - left + 1);
+        }
+    
+    return longest;
+        
+    }
+};
 
 // Driver code 
 int main() 
